@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     #3rd-party apps
     "rest_framework",
+    "corsheaders",
     #local apps
     "accounts.apps.AccountsConfig",
     "posts.apps.PostsConfig",
@@ -55,11 +56,21 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware", #add cors middleware
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+CORS_ORIGIN_WHITELIST = (
+    "http://localhost:3000", #for react
+    "http://localhost:8000", #for django
+)
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000", #for react
 ]
 
 ROOT_URLCONF = "django_blog.urls"
