@@ -3,3 +3,5 @@ djangorestframework
 django-cors-headers
 dj-rest-auth
 django-allauth
+django-allauth[socialaccount]
+drf-spectacular
